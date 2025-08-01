@@ -35,7 +35,7 @@ Cloudflare Workers で動作するシンプルなおみくじ Web API です。
 
 ## 📦 レスポンス例
 
-```json
+```jsonc
 {
   "fortune": "大吉", // 総合運勢
   "rank": 1, // 運勢の順位（1が最良）
