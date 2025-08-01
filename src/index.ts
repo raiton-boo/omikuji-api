@@ -60,7 +60,7 @@ const luckyItems = [
 ];
 
 export default {
-  async fetch(request, env, ctx): Promise<Response> {
+  async fetch(request: Request, env: unknown, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     if (url.pathname === '/api/omikuji') {
       // 運勢をランダムで選ぶ
