@@ -19,6 +19,8 @@ export interface OmikujiResponse {
   category: Category;
   lucky_color: string;
   lucky_item: string;
+  lucky_food: string;
+  lucky_number: number;
   date: string;
 }
 
@@ -33,5 +35,7 @@ export const OmikujiResponseSchema = z.object({
   }),
   lucky_color: z.string(),
   lucky_item: z.string(),
+  lucky_food: z.string(),
+  lucky_number: z.number(),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
 });

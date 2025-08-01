@@ -1,4 +1,3 @@
-import { z } from 'zod';
 import {
   fortunes,
   commentsMap,
@@ -7,6 +6,8 @@ import {
   moneyFortunes,
   luckyColors,
   luckyItems,
+  luckyFoods,
+  luckyNumbers
 } from './data';
 import type { OmikujiResponse } from './types';
 import { OmikujiResponseSchema } from './types';
@@ -33,11 +34,15 @@ export default {
         workFortunes[Math.floor(Math.random() * workFortunes.length)];
       const money =
         moneyFortunes[Math.floor(Math.random() * moneyFortunes.length)];
-      // ラッキーカラーとアイテムをランダムで選ぶ
+      // ラッキーアイテムたちをランダムで選ぶ
       const luckyColor =
         luckyColors[Math.floor(Math.random() * luckyColors.length)];
       const luckyItem =
         luckyItems[Math.floor(Math.random() * luckyItems.length)];
+      const luckyFood =
+        luckyFoods[Math.floor(Math.random() * luckyFoods.length)];
+      const luckyNumber =
+        luckyNumbers[Math.floor(Math.random() * luckyNumbers.length)];
       // 日付を取得
       const today = new Date();
       const date = today.toISOString().slice(0, 10); // "YYYY-MM-DD" 形式
@@ -53,13 +58,17 @@ export default {
         },
         lucky_color: luckyColor,
         lucky_item: luckyItem,
+        lucky_food: luckyFood,
+        lucky_number: luckyNumber,
         date: date,
       };
       // バリデーション
       try {
         OmikujiResponseSchema.parse(data);
       } catch (e) {
-        return new Response('Internal Server Error: Invalid response shape', { status: 500 });
+        return new Response('Internal Server Error: Invalid response shape', {
+          status: 500,
+        });
       }
       return new Response(JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' },
