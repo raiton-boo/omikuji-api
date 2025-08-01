@@ -47,9 +47,35 @@ Cloudflare Workers で動作するシンプルなおみくじ Web API です。
   },
   "lucky_color": "赤", // ラッキーカラー
   "lucky_item": "鍵", // ラッキーアイテム
+  "lucky_food": "カレーライス", // ラッキーフード
+  "lucky_number": 7, // ラッキーナンバー
   "date": "2025-08-02" // 抽選日（YYYY-MM-DD）
 }
 ```
+
+---
+
+## 📝 API 仕様詳細
+
+| フィールド名   | 型     | 説明                      |
+| -------------- | ------ | ------------------------- |
+| fortune        | string | 総合運勢                  |
+| rank           | number | 運勢の順位（1 が最良）    |
+| comment        | string | 運勢に応じたコメント      |
+| category.love  | string | 恋愛運                    |
+| category.work  | string | 仕事運                    |
+| category.money | string | 金運                      |
+| lucky_color    | string | ラッキーカラー            |
+| lucky_item     | string | ラッキーアイテム          |
+| lucky_food     | string | ラッキーフード            |
+| lucky_number   | number | ラッキーナンバー          |
+| date           | string | 抽選日（YYYY-MM-DD 形式） |
+
+### 注意事項
+
+- 各値は日替わり・ランダムで返されます。
+- date は UTC 基準の"YYYY-MM-DD"形式です。
+- エラー時は 500/404 等の HTTP ステータスとメッセージを返します。
 
 ---
 
