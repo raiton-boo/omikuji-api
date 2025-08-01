@@ -1,0 +1,18 @@
+# npm依存ライブラリ（必ず除外）
+node_modules/
+
+# 環境変数ファイル（必要に応じて）
+.env
+
+# macOSの隠しファイル
+.DS_Store
+
+# VS Codeの個人設定（共有不要なら）
+.vscode/
+
+# ビルド成果物（現状Cloudflare Workersでは不要だが、生成される場合のみ）
+dist/
+build/
+
+# ログファイル
+*.log
