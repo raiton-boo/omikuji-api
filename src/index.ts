@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import {
   fortunes,
   commentsMap,
@@ -8,6 +9,7 @@ import {
   luckyItems,
 } from './data';
 import type { OmikujiResponse } from './types';
+import { OmikujiResponseSchema } from './types';
 
 export default {
   async fetch(
@@ -53,6 +55,12 @@ export default {
         lucky_item: luckyItem,
         date: date,
       };
+      // バリデーション
+      try {
+        OmikujiResponseSchema.parse(data);
+      } catch (e) {
+        return new Response('Internal Server Error: Invalid response shape', { status: 500 });
+      }
       return new Response(JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' },
       });
