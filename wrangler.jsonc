@@ -3,13 +3,14 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "dark-pine-8f84",
-	"main": "src/index.ts",
-	"compatibility_date": "2025-08-01",
-	"observability": {
-		"enabled": true
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "omikuji-api",
+  "account_id": "a2edb999f944ad6089b2b7e1017961fb",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-08-01",
+  "observability": {
+    "enabled": true
+  }, // ←ここにカンマないとデプロイできずにエラーになるので注意
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
