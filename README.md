@@ -9,11 +9,12 @@
   <img src="https://img.shields.io/badge/JSON-API-lightgrey?logo=json" alt="JSON API">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome">
   <img src="https://img.shields.io/badge/Made%20with-TypeScript-3178c6?logo=typescript" alt="TypeScript">
+  <a href="https://stats.uptimerobot.com/U2y0jt9Qes" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/uptimerobot/status/m801076343-df7c7f5f2d506c5e562163d0?label=Uptime" alt="UptimeRobot status">
+  </a>
 </div>
 
-<p align="center">おみくじを引いて、今日の運勢を占おう！</p>
-
----
+## <p align="center">おみくじを引いて、今日の運勢を占おう！</p>
 
 ## 🎴 おみくじ API とは？
 
