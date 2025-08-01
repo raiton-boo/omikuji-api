@@ -25,19 +25,38 @@ const commentsMap: { [key: string]: string[] } = {
 
 // カテゴリ別運勢
 const loveFortunes = [
-  "素敵な出会いがありそう",
-  "パートナーと仲良く過ごせる日",
-  "自分磨きが吉"
+  '素敵な出会いがありそう',
+  'パートナーと仲良く過ごせる日',
+  '自分磨きが吉',
 ];
 const workFortunes = [
-  "新しい挑戦が吉",
-  "同僚との協力がカギ",
-  "集中力が高まる日"
+  '新しい挑戦が吉',
+  '同僚との協力がカギ',
+  '集中力が高まる日',
 ];
-const moneyFortunes = [
-  "思わぬ収入あり",
-  "無駄遣いに注意",
-  "節約が運気アップ"
+const moneyFortunes = ['思わぬ収入あり', '無駄遣いに注意', '節約が運気アップ'];
+
+// ラッキーカラーとアイテム
+const luckyColors = [
+  '赤',
+  '青',
+  '黄',
+  '緑',
+  '紫',
+  '白',
+  '黒',
+  'ピンク',
+  'オレンジ',
+];
+const luckyItems = [
+  '鍵',
+  '本',
+  'ペン',
+  '財布',
+  '時計',
+  'ハンカチ',
+  'スマホ',
+  'お守り',
 ];
 
 export default {
@@ -52,9 +71,20 @@ export default {
       const comment =
         selectedComments[Math.floor(Math.random() * selectedComments.length)];
       // カテゴリ別運勢をランダムで選ぶ
-      const love = loveFortunes[Math.floor(Math.random() * loveFortunes.length)];
-      const work = workFortunes[Math.floor(Math.random() * workFortunes.length)];
-      const money = moneyFortunes[Math.floor(Math.random() * moneyFortunes.length)];
+      const love =
+        loveFortunes[Math.floor(Math.random() * loveFortunes.length)];
+      const work =
+        workFortunes[Math.floor(Math.random() * workFortunes.length)];
+      const money =
+        moneyFortunes[Math.floor(Math.random() * moneyFortunes.length)];
+      // ラッキーカラーとアイテムをランダムで選ぶ
+      const luckyColor =
+        luckyColors[Math.floor(Math.random() * luckyColors.length)];
+      const luckyItem =
+        luckyItems[Math.floor(Math.random() * luckyItems.length)];
+      // 日付を取得
+      const today = new Date();
+      const date = today.toISOString().slice(0, 10); // "YYYY-MM-DD" 形式
       // レスポンスデータ
       const data = {
         fortune: selected.fortune,
@@ -63,8 +93,11 @@ export default {
         category: {
           love: love,
           work: work,
-          money: money
+          money: money,
         },
+        lucky_color: luckyColor,
+        lucky_item: luckyItem,
+        date: date,
         // 他の項目もここに追加していく
       };
       return new Response(JSON.stringify(data), {
